@@ -1,0 +1,251 @@
+.success-section {
+  padding: 64px;
+  min-height: 100vh;
+  background-color: var(--color-creamson);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.success-content {
+  background: #fff;
+  padding: 48px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.success-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  font-family: var(--playfair-display);
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.success-message {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--secondary-color);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.order-details {
+  background: rgba(177, 69, 74, 0.05);
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(177, 69, 74, 0.1);
+}
+
+.order-details h3 {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--playfair-display);
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(177, 69, 74, 0.1);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item .label {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--gray-100);
+}
+
+.info-item .value {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--secondary-color);
+}
+
+.delivery-status {
+  margin-bottom: 32px;
+}
+
+.status-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: #f8f8f8;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.status-step.active {
+  background: rgba(177, 69, 74, 0.1);
+  opacity: 1;
+  border: 1px solid rgba(177, 69, 74, 0.2);
+}
+
+.status-step.completed {
+  background: rgba(76, 175, 80, 0.1);
+  opacity: 1;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.step-icon {
+  font-size: 24px;
+  width: 40px;
+  text-align: center;
+}
+
+.step-text {
+  flex: 1;
+  text-align: left;
+}
+
+.step-text h4 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--playfair-display);
+  color: var(--secondary-color);
+  margin-bottom: 4px;
+}
+
+.step-text p {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--gray-100);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--plus-jakarta-sans);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.primary-btn {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .success-section {
+    padding: 32px 24px;
+  }
+  
+  .success-content {
+    padding: 32px 24px;
+  }
+  
+  .success-content h1 {
+    font-size: 36px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .success-section {
+    padding: 24px 16px;
+  }
+  
+  .success-content {
+    padding: 24px 16px;
+  }
+  
+  .success-content h1 {
+    font-size: 28px;
+  }
+  
+  .success-icon {
+    font-size: 60px;
+  }
+  
+  .status-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .step-text {
+    text-align: center;
+  }
+} 

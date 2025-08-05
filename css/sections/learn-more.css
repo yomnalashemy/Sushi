@@ -1,0 +1,214 @@
+body {
+  background: var(--color-creamson);
+}
+
+.learn-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0 60px;
+  background: linear-gradient(120deg, #fff 60%, var(--color-creamson) 100%);
+}
+
+.learn-hero__content {
+  flex: 1 1 400px;
+  max-width: 500px;
+  padding: 40px;
+}
+
+.learn-hero__content h1 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  font-family: var(--playfair-display);
+  margin-bottom: 18px;
+}
+
+.learn-hero__content p {
+  font-size: 1.2rem;
+  color: var(--gray-100);
+  margin-bottom: 32px;
+  font-family: var(--plus-jakarta-sans);
+}
+
+.learn-cta {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  font-family: var(--plus-jakarta-sans);
+}
+.learn-cta:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+.learn-cta.large {
+  font-size: 1.3rem;
+  padding: 18px 48px;
+  margin-top: 18px;
+}
+
+.learn-hero__image {
+  flex: 1 1 350px;
+  max-width: 500px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.learn-hero__image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  object-fit: cover;
+}
+
+.learn-story {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 60px 0;
+  margin: 0 0 40px 0;
+}
+.learn-story__image {
+  flex: 1 1 350px;
+  max-width: 400px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.learn-story__image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  object-fit: cover;
+}
+.learn-story__content {
+  flex: 1 1 400px;
+  max-width: 500px;
+  padding: 30px;
+}
+.learn-story__content h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  font-family: var(--playfair-display);
+  margin-bottom: 16px;
+}
+.learn-story__content p {
+  font-size: 1.1rem;
+  color: var(--gray-100);
+  margin-bottom: 18px;
+  font-family: var(--plus-jakarta-sans);
+}
+.learn-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.learn-highlights li {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-family: var(--plus-jakarta-sans);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.learn-values {
+  background: var(--color-creamson);
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.learn-values h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  font-family: var(--playfair-display);
+  margin-bottom: 36px;
+}
+.learn-values__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.learn-value {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 20px 28px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.learn-value:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+.learn-value img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+}
+.learn-value h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-family: var(--playfair-display);
+}
+.learn-value p {
+  color: var(--gray-100);
+  font-size: 1rem;
+  font-family: var(--plus-jakarta-sans);
+}
+
+.learn-cta-section {
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 60px 0 50px;
+}
+.learn-cta-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+  font-family: var(--playfair-display);
+}
+
+@media (max-width: 900px) {
+  .learn-hero, .learn-story {
+    flex-direction: column;
+    padding: 60px 0 30px;
+  }
+  .learn-hero__content, .learn-story__content, .learn-hero__image, .learn-story__image {
+    max-width: 100%;
+    padding: 20px;
+  }
+  .learn-values__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .learn-hero__content h1 {
+    font-size: 2rem;
+  }
+  .learn-story__content h2, .learn-values h2, .learn-cta-section h2 {
+    font-size: 1.3rem;
+  }
+  .learn-values__grid {
+    grid-template-columns: 1fr;
+  }
+  .learn-value {
+    padding: 20px 10px 18px;
+  }
+}

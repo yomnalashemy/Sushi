@@ -1,5 +1,5 @@
-// Simple cart functionality without ES6 modules
-console.log('Script loading...');
+// Menu page functionality
+console.log('Menu page script loading...');
 
 // Initialize AOS animation if available
 if (typeof AOS !== 'undefined') {
@@ -9,8 +9,7 @@ if (typeof AOS !== 'undefined') {
     });
 }
 
-// Cart functionality
-class CartManager {
+class MenuManager {
     constructor() {
         this.cart = this.loadCart();
         this.init();
@@ -70,28 +69,46 @@ class CartManager {
         }, 3000);
     }
 
-    init() {
-        // Update cart count on page load
-        this.updateCartCount();
-        
-        // Add event listeners to all "Add to Order" buttons
+    setupTabSwitching() {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const menuContents = document.querySelectorAll('.menu-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                menuContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                button.classList.add('active');
+                const targetContent = document.getElementById(`${targetTab}-content`);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+    }
+
+    setupAddToCartButtons() {
         const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
         
-        addToCartButtons.forEach((button, index) => {
+        addToCartButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 
                 try {
-                    const card = button.closest('.popular-foods__card');
-                    if (!card) {
-                        console.error('Could not find parent card element');
+                    const menuItem = button.closest('.menu-item');
+                    if (!menuItem) {
+                        console.error('Could not find parent menu item');
                         return;
                     }
                     
-                    const itemId = card.dataset.itemId;
-                    const itemName = card.dataset.itemName;
-                    const itemPrice = card.dataset.itemPrice;
-                    const itemImage = card.dataset.itemImage;
+                    const itemId = menuItem.dataset.itemId;
+                    const itemName = menuItem.dataset.itemName;
+                    const itemPrice = menuItem.dataset.itemPrice;
+                    const itemImage = menuItem.dataset.itemImage;
                     
                     if (!itemId || !itemName || !itemPrice || !itemImage) {
                         console.error('Missing item data:', { itemId, itemName, itemPrice, itemImage });
@@ -114,20 +131,50 @@ class CartManager {
             });
         });
     }
+
+    setupImageLoading() {
+        const images = document.querySelectorAll('.menu-item-image');
+        
+        images.forEach(img => {
+            img.addEventListener('load', () => {
+                img.style.animation = 'none';
+            });
+            
+            img.addEventListener('error', () => {
+                // Fallback for failed image loads
+                img.src = 'assets/sushi-1.png';
+                img.alt = 'Menu Item';
+            });
+        });
+    }
+
+    init() {
+        // Update cart count on page load
+        this.updateCartCount();
+        
+        // Setup tab switching
+        this.setupTabSwitching();
+        
+        // Setup add to cart buttons
+        this.setupAddToCartButtons();
+        
+        // Setup image loading
+        this.setupImageLoading();
+    }
 }
 
-// Function to initialize cart
-function initializeCart() {
-    // Initialize cart manager
-    window.cartManager = new CartManager();
+// Function to initialize menu page
+function initializeMenuPage() {
+    // Initialize menu manager
+    window.menuManager = new MenuManager();
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCart);
+    document.addEventListener('DOMContentLoaded', initializeMenuPage);
 } else {
     // DOM is already loaded
-    initializeCart();
+    initializeMenuPage();
 }
 
-console.log('Script loaded successfully');
+console.log('Menu page script loaded successfully'); 

@@ -196,3 +196,39 @@
   font-size: 24px;
   color: var(--secondary-color)
 }
+
+.add-to-cart-btn {
+  margin-top: 16px;
+  padding: 12px 24px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.popular-foods__card:hover .add-to-cart-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.add-to-cart-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.popular-foods__card.active-card .add-to-cart-btn {
+  opacity: 1;
+  transform: translateY(0);
+  background: var(--secondary-color);
+}
+
+.popular-foods__card.active-card .add-to-cart-btn:hover {
+  background: var(--primary-color);
+}

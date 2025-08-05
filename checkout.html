@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/sushi.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sections/checkout.css">
+    <title>Sushiman - Checkout</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div class="header__logo">
+          <h4 data-aos="fade-down">Sushiman</h4>
+          <div class="header__logo-overlay"></div>
+        </div>
+
+        <ul class="header__menu" data-aos="fade-down">
+          <li>
+            <a href="menu.html">Menu</a>
+          </li>
+          <li>
+            <a href="index.html#food">Food</a>
+          </li>
+          <li>
+            <a href="index.html#services">Services</a>
+          </li>
+          <li>
+            <a href="index.html#about-us">About Us</a>
+          </li>
+          <li>
+            <img src="assets/search.svg" alt="search" />
+          </li>
+          <li class="cart-icon-container">
+            <a href="cart.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
+          </li>
+        </ul>
+
+        <ul class="header__menu-mobile" data-aos="fade-down">
+          <li>
+            <img src="assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="checkout-section">
+      <div class="checkout-container">
+        <div class="checkout-header" data-aos="fade-down">
+          <h1>Checkout</h1>
+          <div class="checkout-steps">
+            <span class="step active">Cart</span>
+            <span class="step-arrow">→</span>
+            <span class="step active">Checkout</span>
+            <span class="step-arrow">→</span>
+            <span class="step">Confirmation</span>
+          </div>
+        </div>
+
+        <div class="checkout-content">
+          <!-- Order Summary -->
+          <div class="order-summary" data-aos="fade-right">
+            <h3>Order Summary</h3>
+            <div class="order-items" id="orderItems">
+              <!-- Order items will be populated here -->
+            </div>
+            <div class="order-totals">
+              <div class="total-item">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+              </div>
+              <div class="total-item">
+                <span>Tax (8.5%):</span>
+                <span id="tax">$0.00</span>
+              </div>
+              <div class="total-item">
+                <span>Delivery Fee:</span>
+                <span id="delivery">$3.99</span>
+              </div>
+              <div class="total-item grand-total">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkout Form -->
+          <div class="checkout-form" data-aos="fade-left">
+            <form id="checkoutForm">
+              <!-- Customer Information -->
+              <div class="form-section">
+                <h3>Customer Information</h3>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </div>
+              </div>
+
+              <!-- Delivery Information -->
+              <div class="form-section">
+                <h3>Delivery Information</h3>
+                <div class="form-group">
+                  <label for="address">Delivery Address *</label>
+                  <textarea id="address" name="address" rows="3" required placeholder="Enter your full delivery address"></textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="city">City *</label>
+                    <input type="text" id="city" name="city" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="zipCode">ZIP Code *</label>
+                    <input type="text" id="zipCode" name="zipCode" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="deliveryInstructions">Delivery Instructions (Optional)</label>
+                  <textarea id="deliveryInstructions" name="deliveryInstructions" rows="2" placeholder="Any special delivery instructions..."></textarea>
+                </div>
+              </div>
+
+              <!-- Payment Method -->
+              <div class="form-section">
+                <h3>Payment Method</h3>
+                <div class="payment-options">
+                  <div class="payment-option">
+                    <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
+                    <label for="cod">
+                      <span class="payment-icon">💵</span>
+                      <div class="payment-details">
+                        <span class="payment-title">Cash on Delivery</span>
+                        <span class="payment-description">Pay when you receive your order</span>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="payment-option">
+                    <input type="radio" id="card" name="paymentMethod" value="card">
+                    <label for="card">
+                      <span class="payment-icon">💳</span>
+                      <div class="payment-details">
+                        <span class="payment-title">Credit/Debit Card</span>
+                        <span class="payment-description">Secure payment with card</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Card Details (hidden by default) -->
+                <div class="card-details" id="cardDetails" style="display: none;">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="cardNumber">Card Number *</label>
+                      <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="expiryDate">Expiry Date *</label>
+                      <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                      <label for="cvv">CVV *</label>
+                      <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cardName">Name on Card *</label>
+                    <input type="text" id="cardName" name="cardName" placeholder="John Doe">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Confirmation -->
+              <div class="form-section">
+                <div class="order-confirmation">
+                  <h3>Order Confirmation</h3>
+                  <p>By clicking "Confirm Order", you agree to our terms and conditions.</p>
+                  <div class="estimated-delivery">
+                    <span class="delivery-icon">🚚</span>
+                    <span>Estimated delivery time: 30-45 minutes</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-actions">
+                <button type="button" class="back-btn" onclick="window.location.href='cart.html'">
+                  ← Back to Cart
+                </button>
+                <button type="submit" class="confirm-order-btn" id="confirmOrderBtn">
+                  Confirm Order
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer flex-between">
+      <h3 class="footer__logo">
+        <span>Sushi</span>man
+      </h3>
+
+      <ul class="footer__nav">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html#food">Food</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about-us">About Us</a></li>
+      </ul>
+
+      <ul class="footer__social">
+        <li class="flex-center">
+          <img src="assets/facebook.svg" alt="facebook" />
+        </li>
+        <li class="flex-center">
+          <img src="assets/instagram.svg" alt="instagram" />
+        </li>
+        <li class="flex-center">
+          <img src="assets/twitter.svg" alt="twitter" />
+        </li>
+      </ul>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html> 

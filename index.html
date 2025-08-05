@@ -18,7 +18,7 @@
 
         <ul class="header__menu" data-aos="fade-down">
           <li>
-            <a href="#menu">Menu</a>
+            <a href="menu.html">Menu</a>
           </li>
           <li>
             <a href="#food">Food</a>
@@ -31,6 +31,12 @@
           </li>
           <li>
             <img src="assets/search.svg" alt="search" />
+          </li>
+          <li class="cart-icon-container">
+            <a href="cart.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
           </li>
         </ul>
 
@@ -64,7 +70,7 @@
           <p>Feel the taste of the most popular Japanese food from anywhere and anytime.</p>
 
           <div class="hero-content__buttons">
-            <button class="hero-content__order-button">Order Now</button>
+            <button class="hero-content__order-button" onclick="window.location.href='menu.html'">Order Now</button>
             <button class="hero-content__play-button">
               <img src="assets/play-circle.svg" alt="play" />
               How to Order
@@ -92,9 +98,8 @@
           <img src="assets/sushi-3.png" alt="sushi" data-aos="fade-right" />
         </div>
 
-        <button class="about-us__button">
+        <button class="about-us__button" onclick="window.location.href='learn-more.html'">
           Learn More
-
           <img src="assets/arrow-up-right.svg" alt="learn more" />
         </button>
 
@@ -136,7 +141,7 @@
       </div>
 
       <div class="popular-foods__catalogue" data-aos="fade-up">
-        <article class="popular-foods__card">
+        <article class="popular-foods__card" data-item-id="sushi-1" data-item-name="Chezu Sushi" data-item-price="21.00" data-item-image="assets/sushi-12.png">
           <img class="popular-foods__card-image" src="assets/sushi-12.png" alt="sushi-12" />
           <h4 class="popular-foods__card-title">Chezu Sushi</h4>
 
@@ -148,9 +153,10 @@
 
             <p class="popular-foods__card-price">$21.00</p>
           </div>
+          <button class="add-to-cart-btn">Add to Order</button>
         </article>
 
-        <article class="popular-foods__card active-card">
+        <article class="popular-foods__card active-card" data-item-id="sushi-2" data-item-name="Original Sushi" data-item-price="19.00" data-item-image="assets/sushi-11.png">
           <img class="popular-foods__card-image" src="assets/sushi-11.png" alt="sushi-11" />
           <h4 class="popular-foods__card-title">Original Sushi</h4>
           
@@ -162,9 +168,10 @@
             
             <p class="popular-foods__card-price">$19.00</p>
           </div>
+          <button class="add-to-cart-btn">Add to Order</button>
         </article>
 
-        <article class="popular-foods__card">
+        <article class="popular-foods__card" data-item-id="sushi-3" data-item-name="Ramen Legendo" data-item-price="13.00" data-item-image="assets/sushi-10.png">
           <img class="popular-foods__card-image" src="assets/sushi-10.png" alt="sushi-10" />
           <h4 class="popular-foods__card-title">Ramen Legendo</h4>
 
@@ -176,13 +183,226 @@
 
             <p class="popular-foods__card-price">$13.00</p>
           </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-4" data-item-name="Dragon Roll" data-item-price="24.00" data-item-image="assets/sushi-9.png">
+          <img class="popular-foods__card-image" src="assets/sushi-9.png" alt="sushi-9" />
+          <h4 class="popular-foods__card-title">Dragon Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.8</p>
+            </div>
+
+            <p class="popular-foods__card-price">$24.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-5" data-item-name="California Roll" data-item-price="16.00" data-item-image="assets/sushi-8.png">
+          <img class="popular-foods__card-image" src="assets/sushi-8.png" alt="sushi-8" />
+          <h4 class="popular-foods__card-title">California Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.6</p>
+            </div>
+
+            <p class="popular-foods__card-price">$16.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-6" data-item-name="Spicy Tuna Roll" data-item-price="18.00" data-item-image="assets/sushi-7.png">
+          <img class="popular-foods__card-image" src="assets/sushi-7.png" alt="sushi-7" />
+          <h4 class="popular-foods__card-title">Spicy Tuna Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.9</p>
+            </div>
+
+            <p class="popular-foods__card-price">$18.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-7" data-item-name="Salmon Nigiri" data-item-price="12.00" data-item-image="assets/sushi-6.png">
+          <img class="popular-foods__card-image" src="assets/sushi-6.png" alt="sushi-6" />
+          <h4 class="popular-foods__card-title">Salmon Nigiri</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.7</p>
+            </div>
+
+            <p class="popular-foods__card-price">$12.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-8" data-item-name="Tempura Roll" data-item-price="20.00" data-item-image="assets/sushi-5.png">
+          <img class="popular-foods__card-image" src="assets/sushi-5.png" alt="sushi-5" />
+          <h4 class="popular-foods__card-title">Tempura Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.8</p>
+            </div>
+
+            <p class="popular-foods__card-price">$20.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-9" data-item-name="Rainbow Roll" data-item-price="22.00" data-item-image="assets/sushi-4.png">
+          <img class="popular-foods__card-image" src="assets/sushi-4.png" alt="sushi-4" />
+          <h4 class="popular-foods__card-title">Rainbow Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.9</p>
+            </div>
+
+            <p class="popular-foods__card-price">$22.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-10" data-item-name="Philadelphia Roll" data-item-price="17.00" data-item-image="assets/sushi-3.png">
+          <img class="popular-foods__card-image" src="assets/sushi-3.png" alt="sushi-3" />
+          <h4 class="popular-foods__card-title">Philadelphia Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.6</p>
+            </div>
+
+            <p class="popular-foods__card-price">$17.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-11" data-item-name="Eel Roll" data-item-price="23.00" data-item-image="assets/sushi-2.png">
+          <img class="popular-foods__card-image" src="assets/sushi-2.png" alt="sushi-2" />
+          <h4 class="popular-foods__card-title">Eel Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.8</p>
+            </div>
+
+            <p class="popular-foods__card-price">$23.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-12" data-item-name="Cucumber Roll" data-item-price="11.00" data-item-image="assets/sushi-1.png">
+          <img class="popular-foods__card-image" src="assets/sushi-1.png" alt="sushi-1" />
+          <h4 class="popular-foods__card-title">Cucumber Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.5</p>
+            </div>
+
+            <p class="popular-foods__card-price">$11.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-13" data-item-name="Tuna Nigiri" data-item-price="14.00" data-item-image="assets/sushi-2.png">
+          <img class="popular-foods__card-image" src="assets/sushi-2.png" alt="sushi-2" />
+          <h4 class="popular-foods__card-title">Tuna Nigiri</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.7</p>
+            </div>
+
+            <p class="popular-foods__card-price">$14.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-14" data-item-name="Shrimp Tempura Roll" data-item-price="25.00" data-item-image="assets/sushi-3.png">
+          <img class="popular-foods__card-image" src="assets/sushi-3.png" alt="sushi-3" />
+          <h4 class="popular-foods__card-title">Shrimp Tempura Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.9</p>
+            </div>
+
+            <p class="popular-foods__card-price">$25.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-15" data-item-name="Avocado Roll" data-item-price="13.00" data-item-image="assets/sushi-4.png">
+          <img class="popular-foods__card-image" src="assets/sushi-4.png" alt="sushi-4" />
+          <h4 class="popular-foods__card-title">Avocado Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.6</p>
+            </div>
+
+            <p class="popular-foods__card-price">$13.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-16" data-item-name="Yellowtail Roll" data-item-price="26.00" data-item-image="assets/sushi-5.png">
+          <img class="popular-foods__card-image" src="assets/sushi-5.png" alt="sushi-5" />
+          <h4 class="popular-foods__card-title">Yellowtail Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.8</p>
+            </div>
+
+            <p class="popular-foods__card-price">$26.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
+        </article>
+
+        <article class="popular-foods__card" data-item-id="sushi-17" data-item-name="Mango Roll" data-item-price="19.00" data-item-image="assets/sushi-6.png">
+          <img class="popular-foods__card-image" src="assets/sushi-6.png" alt="sushi-6" />
+          <h4 class="popular-foods__card-title">Mango Roll</h4>
+
+          <div class="popular-foods__card-details flex-between">
+            <div class="popular-foods__card-rating">
+              <img src="assets/star.svg" alt="star" />
+              <p>4.7</p>
+            </div>
+
+            <p class="popular-foods__card-price">$19.00</p>
+          </div>
+          <button class="add-to-cart-btn">Add to Order</button>
         </article>
       </div>
 
-      <button class="popular-foods__button">
-        Explore Food
-        <img src="assets/arrow-right.svg"  alt="arrow-right" />
-      </button>
+                        <button class="popular-foods__button" onclick="window.location.href='menu.html'">
+          View All & Order
+          <img src="assets/arrow-right.svg"  alt="arrow-right" />
+        </button>
+          
+
     </section>
 
     <section class="trending" id="food">
@@ -336,7 +556,7 @@
       </h3>
 
       <ul class="footer__nav">
-        <li><a href="#menu">Menu</a></li>
+        <li><a href="menu.html">Menu</a></li>
         <li><a href="#food">Food</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about-us">About Us</a></li>
@@ -355,6 +575,6 @@
       </ul>
     </footer>
 
-    <script src="js/script.js" type="module"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

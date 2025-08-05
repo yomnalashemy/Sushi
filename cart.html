@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/sushi.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sections/cart.css">
+    <title>Sushiman - Your Cart</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div class="header__logo">
+          <h4 data-aos="fade-down">Sushiman</h4>
+          <div class="header__logo-overlay"></div>
+        </div>
+
+        <ul class="header__menu" data-aos="fade-down">
+          <li>
+            <a href="menu.html">Menu</a>
+          </li>
+          <li>
+            <a href="index.html#food">Food</a>
+          </li>
+          <li>
+            <a href="index.html#services">Services</a>
+          </li>
+          <li>
+            <a href="index.html#about-us">About Us</a>
+          </li>
+          <li>
+            <img src="assets/search.svg" alt="search" />
+          </li>
+          <li class="cart-icon-container">
+            <a href="cart.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
+          </li>
+        </ul>
+
+        <ul class="header__menu-mobile" data-aos="fade-down">
+          <li>
+            <img src="assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="cart-section">
+      <div class="cart-container">
+        <div class="cart-header" data-aos="fade-down">
+          <h1>Your Order</h1>
+          <a href="index.html" class="back-to-menu">← Back to Menu</a>
+        </div>
+
+        <div class="cart-content">
+          <div class="cart-items" id="cartItems" data-aos="fade-up">
+            <!-- Cart items will be dynamically populated here -->
+          </div>
+
+          <div class="cart-summary" data-aos="fade-left">
+            <h3>Order Summary</h3>
+            <div class="summary-item">
+              <span>Subtotal:</span>
+              <span id="subtotal">$0.00</span>
+            </div>
+            <div class="summary-item">
+              <span>Tax (8.5%):</span>
+              <span id="tax">$0.00</span>
+            </div>
+            <div class="summary-item">
+              <span>Delivery Fee:</span>
+              <span id="delivery">$3.99</span>
+            </div>
+            <div class="summary-item total">
+              <span>Total:</span>
+              <span id="total">$0.00</span>
+            </div>
+            
+            <button class="clear-cart-btn" id="clearCartBtn">
+              Clear Cart
+            </button>
+            <button class="checkout-btn" id="checkoutBtn" onclick="window.location.href='checkout.html'">
+              Proceed to Checkout
+            </button>
+            
+            <div class="empty-cart-message" id="emptyCartMessage" style="display: none;">
+              <p>Your cart is empty</p>
+              <a href="index.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer flex-between">
+      <h3 class="footer__logo">
+        <span>Sushi</span>man
+      </h3>
+
+      <ul class="footer__nav">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html#food">Food</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about-us">About Us</a></li>
+      </ul>
+
+      <ul class="footer__social">
+        <li class="flex-center">
+          <img src="assets/facebook.svg" alt="facebook" />
+        </li>
+        <li class="flex-center">
+          <img src="assets/instagram.svg" alt="instagram" />
+        </li>
+        <li class="flex-center">
+          <img src="assets/twitter.svg" alt="twitter" />
+        </li>
+      </ul>
+    </footer>
+
+    <script src="js/cart.js"></script>
+  </body>
+</html> 

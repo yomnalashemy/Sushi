@@ -99,6 +99,60 @@ a {
   display: none;
 }
 
+/* Add to cart notification */
+.add-to-cart-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideInRight 0.3s ease;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification-content span {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+}
+
+.notification-content button {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notification-content button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .sushi__hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */

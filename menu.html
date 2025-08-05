@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/sushi.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sections/menu.css">
+    <title>Sushiman - Full Menu</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div class="header__logo">
+          <h4 data-aos="fade-down">Sushiman</h4>
+          <div class="header__logo-overlay"></div>
+        </div>
+
+        <ul class="header__menu" data-aos="fade-down">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="menu.html" class="active">Menu</a>
+          </li>
+          <li>
+            <a href="index.html#food">Food</a>
+          </li>
+          <li>
+            <a href="index.html#services">Services</a>
+          </li>
+          <li>
+            <a href="index.html#about-us">About Us</a>
+          </li>
+          <li>
+            <img src="assets/search.svg" alt="search" />
+          </li>
+          <li class="cart-icon-container">
+            <a href="cart.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
+          </li>
+        </ul>
+
+        <ul class="header__menu-mobile" data-aos="fade-down">
+          <li>
+            <img src="assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="menu-section">
+      <div class="menu-container">
+        <div class="menu-header" data-aos="fade-down">
+          <h1>Our Full Menu</h1>
+          <p>Discover our complete selection of delicious dishes and refreshing drinks</p>
+        </div>
+
+        <div class="menu-tabs" data-aos="fade-up">
+          <button class="tab-btn active" data-tab="dishes">
+            🥢 Dishes
+          </button>
+          <button class="tab-btn" data-tab="drinks">
+            🥤 Drinks
+          </button>
+        </div>
+
+        <!-- Dishes Section -->
+        <div class="menu-content active" id="dishes-content">
+          <div class="menu-grid">
+            <!-- Sushi Items -->
+            <div class="menu-item" data-item-id="sushi-1" data-item-name="Chezu Sushi" data-item-price="21.00" data-item-image="assets/sushi-12.png">
+              <img src="assets/sushi-12.png" alt="Chezu Sushi" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Chezu Sushi</h3>
+                <p class="menu-item-description">Premium salmon and avocado roll with special sauce</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$21.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="sushi-2" data-item-name="Original Sushi" data-item-price="19.00" data-item-image="assets/sushi-11.png">
+              <img src="assets/sushi-11.png" alt="Original Sushi" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Original Sushi</h3>
+                <p class="menu-item-description">Classic tuna and cucumber roll with traditional flavors</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$19.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="sushi-3" data-item-name="Dragon Roll" data-item-price="24.00" data-item-image="assets/sushi-9.png">
+              <img src="assets/sushi-9.png" alt="Dragon Roll" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Dragon Roll</h3>
+                <p class="menu-item-description">Eel and avocado roll topped with spicy mayo</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$24.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="sushi-4" data-item-name="California Roll" data-item-price="16.00" data-item-image="assets/sushi-8.png">
+              <img src="assets/sushi-8.png" alt="California Roll" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>California Roll</h3>
+                <p class="menu-item-description">Crab, avocado, and cucumber roll</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$16.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="sushi-5" data-item-name="Spicy Tuna Roll" data-item-price="18.00" data-item-image="assets/sushi-7.png">
+              <img src="assets/sushi-7.png" alt="Spicy Tuna Roll" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Spicy Tuna Roll</h3>
+                <p class="menu-item-description">Spicy tuna with cucumber and green onion</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$18.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="sushi-6" data-item-name="Salmon Nigiri" data-item-price="12.00" data-item-image="assets/sushi-6.png">
+              <img src="assets/sushi-6.png" alt="Salmon Nigiri" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Salmon Nigiri</h3>
+                <p class="menu-item-description">Fresh salmon over seasoned rice</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$12.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ramen Items -->
+            <div class="menu-item" data-item-id="ramen-1" data-item-name="Tonkotsu Ramen" data-item-price="15.00" data-item-image="https://source.unsplash.com/featured/?ramen">
+              <img src="https://source.unsplash.com/featured/?ramen" alt="Tonkotsu Ramen" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Tonkotsu Ramen</h3>
+                <p class="menu-item-description">Rich pork bone broth with chashu and soft-boiled egg</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$15.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="ramen-2" data-item-name="Miso Ramen" data-item-price="14.00" data-item-image="https://source.unsplash.com/featured/?miso-ramen">
+              <img src="https://source.unsplash.com/featured/?miso-ramen" alt="Miso Ramen" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Miso Ramen</h3>
+                <p class="menu-item-description">Savory miso broth with corn and green onions</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$14.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tempura Items -->
+            <div class="menu-item" data-item-id="tempura-1" data-item-name="Shrimp Tempura" data-item-price="13.00" data-item-image="https://source.unsplash.com/featured/?tempura">
+              <img src="https://source.unsplash.com/featured/?tempura" alt="Shrimp Tempura" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Shrimp Tempura</h3>
+                <p class="menu-item-description">Crispy battered shrimp with dipping sauce</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$13.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="tempura-2" data-item-name="Vegetable Tempura" data-item-price="11.00" data-item-image="https://source.unsplash.com/featured/?vegetable-tempura">
+              <img src="https://source.unsplash.com/featured/?vegetable-tempura" alt="Vegetable Tempura" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Vegetable Tempura</h3>
+                <p class="menu-item-description">Assorted seasonal vegetables in light batter</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$11.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drinks Section -->
+        <div class="menu-content" id="drinks-content">
+          <div class="menu-grid">
+            <!-- Tea Items -->
+            <div class="menu-item" data-item-id="drink-1" data-item-name="Green Tea" data-item-price="3.50" data-item-image="https://source.unsplash.com/featured/?green-tea">
+              <img src="https://source.unsplash.com/featured/?green-tea" alt="Green Tea" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Green Tea</h3>
+                <p class="menu-item-description">Traditional Japanese green tea</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$3.50</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="drink-2" data-item-name="Matcha Latte" data-item-price="5.00" data-item-image="https://source.unsplash.com/featured/?matcha">
+              <img src="https://source.unsplash.com/featured/?matcha" alt="Matcha Latte" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Matcha Latte</h3>
+                <p class="menu-item-description">Premium matcha with steamed milk</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$5.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="drink-3" data-item-name="Sakura Tea" data-item-price="4.50" data-item-image="https://source.unsplash.com/featured/?cherry-blossom-tea">
+              <img src="https://source.unsplash.com/featured/?cherry-blossom-tea" alt="Sakura Tea" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Sakura Tea</h3>
+                <p class="menu-item-description">Cherry blossom flavored tea</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$4.50</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Soda Items -->
+            <div class="menu-item" data-item-id="drink-4" data-item-name="Ramune Soda" data-item-price="4.00" data-item-image="https://source.unsplash.com/featured/?ramune">
+              <img src="https://source.unsplash.com/featured/?ramune" alt="Ramune Soda" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Ramune Soda</h3>
+                <p class="menu-item-description">Japanese carbonated soft drink</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$4.00</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item" data-item-id="drink-5" data-item-name="Calpico" data-item-price="3.50" data-item-image="https://source.unsplash.com/featured/?calpico">
+              <img src="https://source.unsplash.com/featured/?calpico" alt="Calpico" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Calpico</h3>
+                <p class="menu-item-description">Refreshing Japanese soft drink</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$3.50</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Water -->
+            <div class="menu-item" data-item-id="drink-6" data-item-name="Sparkling Water" data-item-price="2.50" data-item-image="https://source.unsplash.com/featured/?sparkling-water">
+              <img src="https://source.unsplash.com/featured/?sparkling-water" alt="Sparkling Water" class="menu-item-image">
+              <div class="menu-item-content">
+                <h3>Sparkling Water</h3>
+                <p class="menu-item-description">Premium sparkling mineral water</p>
+                <div class="menu-item-footer">
+                  <span class="menu-item-price">$2.50</span>
+                  <button class="add-to-cart-btn">Add to Order</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer flex-between">
+      <h3 class="footer__logo">
+        <span>Sushi</span>man
+      </h3>
+
+      <ul class="footer__nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html#food">Food</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about-us">About Us</a></li>
+      </ul>
+
+      <ul class="footer__social">
+        <li class="flex-center">
+          <img src="assets/facebook.svg" alt="facebook" />
+        </li>
+        <li class="flex-center">
+          <img src="assets/instagram.svg" alt="instagram" />
+        </li>
+        <li class="flex-center">
+          <img src="assets/twitter.svg" alt="twitter" />
+        </li>
+      </ul>
+    </footer>
+
+    <script src="js/menu.js"></script>
+  </body>
+</html> 
