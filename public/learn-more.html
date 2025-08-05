@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn More | Sushiman</title>
-  <link rel="icon" type="image/png" href="/sushi.png" />
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/sections/learn-more.css">
+  <link rel="icon" type="image/png" href="../sushi.png" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/sections/learn-more.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
   <header>
@@ -16,13 +17,13 @@
         <div class="header__logo-overlay"></div>
       </div>
       <ul class="header__menu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="../index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="cart.html">Cart</a></li>
         <li><a href="learn-more.html" class="active">Learn More</a></li>
       </ul>
       <ul class="header__menu-mobile">
-        <li><img src="assets/menu.svg" alt="menu" /></li>
+        <li><img src="../assets/menu.svg" alt="menu" /></li>
       </ul>
     </nav>
   </header>
@@ -31,7 +32,7 @@
     <div class="learn-hero__content">
       <h1>Discover the Art of Japanese Cuisine</h1>
       <p>At <strong>Sushiman</strong>, we blend tradition, creativity, and the freshest ingredients to bring you an unforgettable dining experience. Dive into our story and see what makes us unique!</p>
-      <a href="menu.html" class="learn-cta">Explore Our Menu</a>
+              <a href="menu.html" class="learn-cta">Explore Our Menu</a>
     </div>
     <div class="learn-hero__image">
       <img src="https://source.unsplash.com/featured/?japanese-food" alt="Japanese Cuisine" />
@@ -60,22 +61,22 @@
     <h2>Why Choose Sushiman?</h2>
     <div class="learn-values__grid">
       <div class="learn-value">
-        <img src="assets/star.svg" alt="Quality" />
+        <img src="../assets/star.svg" alt="Quality" />
         <h3>Unmatched Quality</h3>
         <p>Every dish is prepared with precision and care, using only the best ingredients.</p>
       </div>
       <div class="learn-value">
-        <img src="assets/check.svg" alt="Authenticity" />
+        <img src="../assets/check.svg" alt="Authenticity" />
         <h3>Authentic Experience</h3>
         <p>Enjoy the true taste of Japan, from classic sushi to innovative creations.</p>
       </div>
       <div class="learn-value">
-        <img src="assets/play-circle.svg" alt="Creativity" />
+        <img src="../assets/play-circle.svg" alt="Creativity" />
         <h3>Creative Flavors</h3>
         <p>Our chefs blend tradition and innovation to surprise your palate every visit.</p>
       </div>
       <div class="learn-value">
-        <img src="assets/user.png" alt="Service" />
+        <img src="../assets/user.png" alt="Service" />
         <h3>Warm Hospitality</h3>
         <p>We treat every guest like family, ensuring a memorable and welcoming experience.</p>
       </div>
@@ -84,7 +85,7 @@
 
   <section class="learn-cta-section">
     <h2>Ready to Taste the Difference?</h2>
-    <a href="menu.html" class="learn-cta large">Order Now</a>
+            <a href="menu.html" class="learn-cta large">Order Now</a>
   </section>
 
   <footer class="footer flex-between">
@@ -92,16 +93,24 @@
       <span>Sushi</span>man
     </h3>
     <ul class="footer__nav">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="../index.html">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
       <li><a href="cart.html">Cart</a></li>
       <li><a href="learn-more.html">Learn More</a></li>
     </ul>
     <ul class="footer__social">
-      <li class="flex-center"><img src="assets/facebook.svg" alt="facebook" /></li>
-      <li class="flex-center"><img src="assets/instagram.svg" alt="instagram" /></li>
-      <li class="flex-center"><img src="assets/twitter.svg" alt="twitter" /></li>
+      <li class="flex-center"><img src="../assets/facebook.svg" alt="facebook" /></li>
+      <li class="flex-center"><img src="../assets/instagram.svg" alt="instagram" /></li>
+      <li class="flex-center"><img src="../assets/twitter.svg" alt="twitter" /></li>
     </ul>
   </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+    });
+  </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/sushi.png" />
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <title>Sushiman</title>
   </head>
   <body>
@@ -18,7 +19,7 @@
 
         <ul class="header__menu" data-aos="fade-down">
           <li>
-            <a href="menu.html">Menu</a>
+            <a href="/public/menu.html">Menu</a>
           </li>
           <li>
             <a href="#food">Food</a>
@@ -30,10 +31,13 @@
             <a href="#about-us">About Us</a>
           </li>
           <li>
+            <a href="/public/learn-more.html">Learn More</a>
+          </li>
+          <li>
             <img src="assets/search.svg" alt="search" />
           </li>
           <li class="cart-icon-container">
-            <a href="cart.html" class="cart-icon">
+            <a href="/public/cart.html" class="cart-icon">
               <span class="cart-count" id="cartCount">0</span>
               🛒
             </a>
@@ -70,7 +74,7 @@
           <p>Feel the taste of the most popular Japanese food from anywhere and anytime.</p>
 
           <div class="hero-content__buttons">
-            <button class="hero-content__order-button" onclick="window.location.href='menu.html'">Order Now</button>
+            <button class="hero-content__order-button" onclick="window.location.href='/public/menu.html'">Order Now</button>
             <button class="hero-content__play-button">
               <img src="assets/play-circle.svg" alt="play" />
               How to Order
@@ -98,7 +102,7 @@
           <img src="assets/sushi-3.png" alt="sushi" data-aos="fade-right" />
         </div>
 
-        <button class="about-us__button" onclick="window.location.href='learn-more.html'">
+                    <button class="about-us__button" onclick="window.location.href='/public/learn-more.html'">
           Learn More
           <img src="assets/arrow-up-right.svg" alt="learn more" />
         </button>
@@ -397,7 +401,7 @@
         </article>
       </div>
 
-                        <button class="popular-foods__button" onclick="window.location.href='menu.html'">
+                        <button class="popular-foods__button" onclick="window.location.href='/public/menu.html'">
           View All & Order
           <img src="assets/arrow-right.svg"  alt="arrow-right" />
         </button>
@@ -545,9 +549,10 @@
       <p data-aos="fade-up">Sign up for the Sushiman newsletter</p>
 
       <div class="subscription__form" data-aos="fade-up">
-        <input type="text" placeholder="Enter your email address"/>
-        <button>Get Started</button>
+        <input type="email" id="emailInput" placeholder="Enter your email address" required/>
+        <button id="subscribeBtn" onclick="handleSubscribe()">Get Started</button>
       </div>
+      <div id="subscribeMessage" style="display: none; margin-top: 20px; padding: 10px; border-radius: 8px; text-align: center;"></div>
     </section>
 
     <footer class="footer flex-between">
@@ -556,10 +561,11 @@
       </h3>
 
       <ul class="footer__nav">
-        <li><a href="menu.html">Menu</a></li>
+        <li><a href="/public/menu.html">Menu</a></li>
         <li><a href="#food">Food</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about-us">About Us</a></li>
+        <li><a href="/public/learn-more.html">Learn More</a></li>
       </ul>
 
       <ul class="footer__social">
@@ -575,6 +581,7 @@
       </ul>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

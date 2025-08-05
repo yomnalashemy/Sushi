@@ -1,12 +1,27 @@
 // Simple cart functionality without ES6 modules
 console.log('Script loading...');
 
-// Initialize AOS animation if available
-if (typeof AOS !== 'undefined') {
-AOS.init({
-    duration: 1000,
-    offset: 100,
+// Global error handler to catch external errors
+window.addEventListener('error', function(e) {
+    if (e.message.includes('solveSimpleChallenge')) {
+        console.log('External error caught and ignored:', e.message);
+        e.preventDefault();
+        return false;
+    }
 });
+
+// Initialize AOS animation if available
+try {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+        });
+    } else {
+        console.log('AOS library not loaded yet');
+    }
+} catch (error) {
+    console.log('AOS initialization error:', error);
 }
 
 // Cart functionality
@@ -58,7 +73,7 @@ class CartManager {
         notification.innerHTML = `
             <div class="notification-content">
                 <span>✓ ${itemName} added to cart!</span>
-                <button onclick="window.location.href='cart.html'">View Cart</button>
+                <button onclick="window.location.href='public/cart.html'">View Cart</button>
             </div>
         `;
         
@@ -129,5 +144,94 @@ if (document.readyState === 'loading') {
     // DOM is already loaded
     initializeCart();
 }
+
+// Initialize AOS after DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                offset: 100,
+            });
+        }
+    });
+} else {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+        });
+    }
+}
+
+// Email subscription functionality
+function handleSubscribe() {
+    const emailInput = document.getElementById('emailInput');
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const messageDiv = document.getElementById('subscribeMessage');
+    
+    const email = emailInput.value.trim();
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showMessage('Please enter a valid email address.', 'error');
+        return;
+    }
+    
+    // Disable button and show loading
+    subscribeBtn.disabled = true;
+    subscribeBtn.textContent = 'Subscribing...';
+    
+    // Simulate email subscription (in a real app, you'd send this to your backend)
+    setTimeout(() => {
+        // Store email in localStorage (for demo purposes)
+        const subscribers = JSON.parse(localStorage.getItem('sushiman-subscribers') || '[]');
+        if (!subscribers.includes(email)) {
+            subscribers.push(email);
+            localStorage.setItem('sushiman-subscribers', JSON.stringify(subscribers));
+        }
+        
+        showMessage('Thank you for subscribing! You\'ll receive our latest offers soon.', 'success');
+        emailInput.value = '';
+        
+        // Reset button
+        subscribeBtn.disabled = false;
+        subscribeBtn.textContent = 'Get Started';
+    }, 1500);
+}
+
+function showMessage(message, type) {
+    const messageDiv = document.getElementById('subscribeMessage');
+    messageDiv.textContent = message;
+    messageDiv.style.display = 'block';
+    
+    if (type === 'success') {
+        messageDiv.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+        messageDiv.style.color = '#4CAF50';
+        messageDiv.style.border = '1px solid #4CAF50';
+    } else {
+        messageDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
+        messageDiv.style.color = '#F44336';
+        messageDiv.style.border = '1px solid #F44336';
+    }
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 5000);
+}
+
+// Add enter key support for email input
+document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.getElementById('emailInput');
+    if (emailInput) {
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSubscribe();
+            }
+        });
+    }
+});
 
 console.log('Script loaded successfully');

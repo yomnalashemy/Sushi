@@ -1,12 +1,27 @@
 // Menu page functionality
 console.log('Menu page script loading...');
 
+// Global error handler to catch external errors
+window.addEventListener('error', function(e) {
+    if (e.message.includes('solveSimpleChallenge')) {
+        console.log('External error caught and ignored:', e.message);
+        e.preventDefault();
+        return false;
+    }
+});
+
 // Initialize AOS animation if available
-if (typeof AOS !== 'undefined') {
-    AOS.init({
-        duration: 1000,
-        offset: 100,
-    });
+try {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+        });
+    } else {
+        console.log('AOS library not loaded yet');
+    }
+} catch (error) {
+    console.log('AOS initialization error:', error);
 }
 
 class MenuManager {
@@ -142,7 +157,7 @@ class MenuManager {
             
             img.addEventListener('error', () => {
                 // Fallback for failed image loads
-                img.src = 'assets/sushi-1.png';
+                img.src = '../assets/sushi-1.png';
                 img.alt = 'Menu Item';
             });
         });

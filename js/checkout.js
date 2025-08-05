@@ -281,7 +281,7 @@ class CheckoutManager {
         localStorage.removeItem('sushiman-cart');
         
         setTimeout(() => {
-            window.location.href = 'success.html';
+            window.location.href = '/public/success.html';
         }, 1000);
     }
 
