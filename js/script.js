@@ -3,10 +3,10 @@ console.log('Script loading...');
 
 // Initialize AOS animation if available
 if (typeof AOS !== 'undefined') {
-    AOS.init({
-        duration: 1000,
-        offset: 100,
-    });
+AOS.init({
+    duration: 1000,
+    offset: 100,
+});
 }
 
 // Cart functionality
