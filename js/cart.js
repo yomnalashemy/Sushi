@@ -151,7 +151,7 @@ class CartManager {
 
     checkout() {
         // Redirect to checkout page
-        window.location.href = '/public/checkout.html';
+        window.location.href = '/checkout.html';
     }
 
     init() {
