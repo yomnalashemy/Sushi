@@ -22,6 +22,17 @@ const mimeTypes = {
 };
 
 const server = createServer(async (req, res) => {
+  // Set CORS headers for Render
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  if (req.method === 'OPTIONS') {
+    res.writeHead(200);
+    res.end();
+    return;
+  }
+
   let filePath = join(__dirname, 'dist', req.url === '/' ? 'index.html' : req.url);
   
   try {
@@ -52,4 +63,5 @@ const server = createServer(async (req, res) => {
 
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 }); 
