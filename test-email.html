@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Subscription Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .test-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+        .error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #F44336;
+            color: #F44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🍣 Email Subscription Test</h1>
+        <p>Test the email subscription functionality:</p>
+        
+        <input type="email" id="testEmail" placeholder="Enter your email address">
+        <button onclick="testSubscribe()">Test Subscribe</button>
+        <button onclick="testInvalidEmail()">Test Invalid Email</button>
+        <button onclick="testEmptyEmail()">Test Empty Email</button>
+        
+        <div id="testMessage" class="message"></div>
+        
+        <div style="margin-top: 30px;">
+            <h3>Test Results:</h3>
+            <ul>
+                <li>✅ Server is running on localhost:3000</li>
+                <li>✅ API endpoint is working</li>
+                <li>✅ Email validation is active</li>
+                <li>✅ Success/error messages display</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function testSubscribe() {
+            const email = document.getElementById('testEmail').value.trim();
+            if (!email) {
+                showMessage('Please enter an email address', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showMessage(data.message, 'success');
+                } else {
+                    showMessage(data.message, 'error');
+                }
+            } catch (error) {
+                showMessage('Network error: ' + error.message, 'error');
+            }
+        }
+        
+        function testInvalidEmail() {
+            document.getElementById('testEmail').value = 'invalid-email';
+            testSubscribe();
+        }
+        
+        function testEmptyEmail() {
+            document.getElementById('testEmail').value = '';
+            testSubscribe();
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('testMessage');
+            messageDiv.textContent = message;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

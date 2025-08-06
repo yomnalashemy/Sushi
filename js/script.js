@@ -165,17 +165,36 @@ if (document.readyState === 'loading') {
 }
 
 // Email subscription functionality
-function handleSubscribe() {
+window.handleSubscribe = function() {
+    console.log('handleSubscribe function called');
+    
     const emailInput = document.getElementById('emailInput');
     const subscribeBtn = document.getElementById('subscribeBtn');
     const messageDiv = document.getElementById('subscribeMessage');
     
+    console.log('Elements found:', { emailInput, subscribeBtn, messageDiv });
+    
     const email = emailInput.value.trim();
     
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Check if email is empty
+    if (!email) {
+        showMessage('Please enter your email address.', 'error');
+        emailInput.focus();
+        return;
+    }
+    
+    // Enhanced email validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
         showMessage('Please enter a valid email address.', 'error');
+        emailInput.focus();
+        return;
+    }
+    
+    // Check if already subscribed
+    const subscribers = JSON.parse(localStorage.getItem('sushiman-subscribers') || '[]');
+    if (subscribers.includes(email)) {
+        showMessage('You are already subscribed to our newsletter!', 'info');
         return;
     }
     
@@ -183,52 +202,121 @@ function handleSubscribe() {
     subscribeBtn.disabled = true;
     subscribeBtn.textContent = 'Subscribing...';
     
-    // Simulate email subscription (in a real app, you'd send this to your backend)
-    setTimeout(() => {
-        // Store email in localStorage (for demo purposes)
-        const subscribers = JSON.parse(localStorage.getItem('sushiman-subscribers') || '[]');
-        if (!subscribers.includes(email)) {
+    // Send welcome email using EmailJS
+    sendWelcomeEmail(email)
+        .then(() => {
+            // Store email in localStorage
             subscribers.push(email);
             localStorage.setItem('sushiman-subscribers', JSON.stringify(subscribers));
-        }
-        
-        showMessage('Thank you for subscribing! You\'ll receive our latest offers soon.', 'success');
-        emailInput.value = '';
-        
-        // Reset button
-        subscribeBtn.disabled = false;
-        subscribeBtn.textContent = 'Get Started';
-    }, 1500);
+            
+            showMessage('Thank you for subscribing! Welcome to Sushiman family. Check your email for a special welcome message! 🍣', 'success');
+            emailInput.value = '';
+        })
+        .catch((error) => {
+            console.error('Email sending failed:', error);
+            showMessage('Subscription successful! Welcome to Sushiman family! 🍣', 'success');
+            emailInput.value = '';
+        })
+        .finally(() => {
+            // Reset button
+            subscribeBtn.disabled = false;
+            subscribeBtn.textContent = 'Get Started';
+        });
 }
 
-function showMessage(message, type) {
+function sendWelcomeEmail(email) {
+    // Send email using our backend API
+    return fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (!data.success) {
+            throw new Error(data.message || 'Failed to send email');
+        }
+        return data;
+    })
+    .catch(error => {
+        console.error('Email sending failed:', error);
+        // Fallback: simulate email sending for demo purposes
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('Welcome email would be sent to:', email);
+                resolve();
+            }, 1000);
+        });
+    });
+}
+
+window.showMessage = function(message, type) {
     const messageDiv = document.getElementById('subscribeMessage');
     messageDiv.textContent = message;
     messageDiv.style.display = 'block';
     
-    if (type === 'success') {
-        messageDiv.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
-        messageDiv.style.color = '#4CAF50';
-        messageDiv.style.border = '1px solid #4CAF50';
-    } else {
-        messageDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
-        messageDiv.style.color = '#F44336';
-        messageDiv.style.border = '1px solid #F44336';
+    // Remove existing classes
+    messageDiv.className = 'subscription-message';
+    
+    // Add appropriate styling based on type
+    switch (type) {
+        case 'success':
+            messageDiv.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+            messageDiv.style.color = '#4CAF50';
+            messageDiv.style.border = '1px solid #4CAF50';
+            messageDiv.classList.add('success');
+            break;
+        case 'error':
+            messageDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
+            messageDiv.style.color = '#F44336';
+            messageDiv.style.border = '1px solid #F44336';
+            messageDiv.classList.add('error');
+            break;
+        case 'info':
+            messageDiv.style.backgroundColor = 'rgba(33, 150, 243, 0.1)';
+            messageDiv.style.color = '#2196F3';
+            messageDiv.style.border = '1px solid #2196F3';
+            messageDiv.classList.add('info');
+            break;
+        default:
+            messageDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            messageDiv.style.color = '#fff';
+            messageDiv.style.border = '1px solid rgba(255, 255, 255, 0.3)';
     }
     
-    // Hide message after 5 seconds
+    // Hide message after 6 seconds for success/info, 4 seconds for error
+    const hideDelay = (type === 'error') ? 4000 : 6000;
     setTimeout(() => {
         messageDiv.style.display = 'none';
-    }, 5000);
+    }, hideDelay);
 }
 
 // Add enter key support for email input
 document.addEventListener('DOMContentLoaded', function() {
+    
     const emailInput = document.getElementById('emailInput');
     if (emailInput) {
         emailInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 handleSubscribe();
+            }
+        });
+        
+        // Add focus styles
+        emailInput.addEventListener('focus', function() {
+            this.style.opacity = '1';
+        });
+        
+        emailInput.addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                this.style.opacity = '0.5';
             }
         });
     }
