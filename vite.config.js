@@ -17,7 +17,23 @@ export default defineConfig({
   },
   server: {
     port: process.env.PORT || 3000,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'sushi-zj20.onrender.com',
+      '.onrender.com'
+    ]
+  },
+  preview: {
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0',
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'sushi-zj20.onrender.com',
+      '.onrender.com'
+    ]
   },
   base: './'
 }) 

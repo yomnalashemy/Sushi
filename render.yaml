@@ -3,7 +3,8 @@ services:
     name: sushi-website
     env: node
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    startCommand: npm run start:static
     envVars:
       - key: NODE_ENV
-        value: production 
+        value: production
+    healthCheckPath: / 
