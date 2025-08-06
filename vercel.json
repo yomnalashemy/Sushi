@@ -1,7 +1,14 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/menu", "destination": "/menu.html" },
+    { "source": "/cart", "destination": "/cart.html" },
+    { "source": "/checkout", "destination": "/checkout.html" },
+    { "source": "/learn-more", "destination": "/learn-more.html" },
+    { "source": "/success", "destination": "/success.html" }
   ],
   "headers": [
     {
