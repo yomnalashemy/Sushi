@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../sushi.png" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sections/how-to-order.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <title>Sushiman - How to Order</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div class="header__logo">
+          <h4 data-aos="fade-down">Sushiman</h4>
+          <div class="header__logo-overlay"></div>
+        </div>
+
+        <ul class="header__menu" data-aos="fade-down">
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
+          <li>
+            <a href="menu.html">Menu</a>
+          </li>
+          <li>
+            <a href="../index.html#food">Food</a>
+          </li>
+          <li>
+            <a href="../index.html#services">Services</a>
+          </li>
+          <li>
+            <a href="../index.html#about-us">About Us</a>
+          </li>
+          <li>
+            <a href="learn-more.html">Learn More</a>
+          </li>
+          <li>
+            <img src="../assets/search.svg" alt="search" />
+          </li>
+          <li class="cart-icon-container">
+            <a href="cart.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
+          </li>
+        </ul>
+
+        <ul class="header__menu-mobile" data-aos="fade-down">
+          <li>
+            <img src="../assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="how-to-order-section">
+      <div class="how-to-order-container">
+        <div class="how-to-order-header" data-aos="fade-down">
+          <h1>How to Order</h1>
+          <p>Ordering delicious sushi has never been easier! Follow these simple steps to enjoy fresh, authentic Japanese cuisine delivered right to your door.</p>
+          <a href="menu.html" class="back-to-menu-btn">← Back to Menu</a>
+        </div>
+
+        <!-- Ordering Process -->
+        <div class="ordering-process" data-aos="fade-up">
+          <h2>📝 Simple Ordering Process</h2>
+          <div class="steps-container">
+            <div class="step" data-aos="fade-right" data-aos-delay="100">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>🥢 Browse the Menu</h3>
+                <p>Choose from our fresh sushi, hot ramen, and cold drinks. We have something for everyone!</p>
+                <div class="step-icon">🍣</div>
+              </div>
+            </div>
+
+            <div class="step" data-aos="fade-left" data-aos-delay="200">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>🛒 Add to Cart</h3>
+                <p>Click "Add to Order" on any item you love — it will be added to your cart instantly.</p>
+                <div class="step-icon">➕</div>
+              </div>
+            </div>
+
+            <div class="step" data-aos="fade-right" data-aos-delay="300">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>📋 Review Your Cart</h3>
+                <p>Click the 🛒 icon to view or update your cart before checkout.</p>
+                <div class="step-icon">📝</div>
+              </div>
+            </div>
+
+            <div class="step" data-aos="fade-left" data-aos-delay="400">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>💳 Checkout</h3>
+                <p>Provide your name, phone, address, and choose your payment method:</p>
+                <ul class="payment-methods">
+                  <li>✅ Cash on Delivery</li>
+                  <li>💳 Credit/Debit Card (secure and easy)</li>
+                </ul>
+                <div class="step-icon">💳</div>
+              </div>
+            </div>
+
+            <div class="step" data-aos="fade-right" data-aos-delay="500">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3>🎉 Confirm & Enjoy!</h3>
+                <p>Once you confirm, your order is on its way. Fast, fresh, and delicious!</p>
+                <div class="step-icon">🚚</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Offers -->
+        <div class="special-offers" data-aos="fade-up">
+          <h2>🎁 Today's Special Offers</h2>
+          <div class="offers-grid">
+            <div class="offer-card" data-aos="zoom-in" data-aos-delay="100">
+              <div class="offer-icon">🥢</div>
+              <h3>Free Miso Soup</h3>
+              <p>Order over 200 EGP and get a free miso soup!</p>
+              <div class="offer-badge">FREE</div>
+            </div>
+
+            <div class="offer-card" data-aos="zoom-in" data-aos-delay="200">
+              <div class="offer-icon">🥤</div>
+              <h3>Combo Meal Deal</h3>
+              <p>1 sushi roll + ramen + drink → 10% off</p>
+              <div class="offer-badge">10% OFF</div>
+            </div>
+
+            <div class="offer-card" data-aos="zoom-in" data-aos-delay="300">
+              <div class="offer-icon">🎁</div>
+              <h3>First-Time Order</h3>
+              <p>Use code <strong>WELCOME10</strong> at checkout for 10% off</p>
+              <div class="offer-badge">NEW</div>
+            </div>
+
+            <div class="offer-card" data-aos="zoom-in" data-aos-delay="400">
+              <div class="offer-icon">🚚</div>
+              <h3>Free Delivery</h3>
+              <p>Free delivery on orders over 150 EGP</p>
+              <div class="offer-badge">FREE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="additional-info" data-aos="fade-up">
+          <div class="info-grid">
+            <div class="info-card" data-aos="fade-right" data-aos-delay="100">
+              <div class="info-icon">⏰</div>
+              <h3>Fast Delivery</h3>
+              <p>We deliver within 30-45 minutes to ensure your food arrives fresh and hot!</p>
+            </div>
+
+            <div class="info-card" data-aos="fade-left" data-aos-delay="200">
+              <div class="info-icon">🌱</div>
+              <h3>Fresh Ingredients</h3>
+              <p>We use only the freshest ingredients, prepared daily by our expert chefs.</p>
+            </div>
+
+            <div class="info-card" data-aos="fade-right" data-aos-delay="300">
+              <div class="info-icon">📱</div>
+              <h3>Easy Ordering</h3>
+              <p>Order online anytime, anywhere. Our website is mobile-friendly!</p>
+            </div>
+
+            <div class="info-card" data-aos="fade-left" data-aos-delay="400">
+              <div class="info-icon">💬</div>
+              <h3>Customer Support</h3>
+              <p>Need help? Contact us anytime. We're here to make your experience perfect!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section" data-aos="fade-up">
+          <h2>Ready to Order?</h2>
+          <p>Start your delicious journey with Sushiman today!</p>
+          <div class="cta-buttons">
+            <a href="menu.html" class="cta-btn primary">Browse Menu</a>
+            <a href="cart.html" class="cta-btn secondary">View Cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer flex-between">
+      <h3 class="footer__logo">
+        <span>Sushi</span>man
+      </h3>
+
+      <ul class="footer__nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="../index.html#food">Food</a></li>
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#about-us">About Us</a></li>
+        <li><a href="learn-more.html">Learn More</a></li>
+        <li><a href="how-to-order.html">How to Order</a></li>
+      </ul>
+
+      <ul class="footer__social">
+        <li class="flex-center">
+          <img src="../assets/facebook.svg" alt="facebook" />
+        </li>
+        <li class="flex-center">
+          <img src="../assets/instagram.svg" alt="instagram" />
+        </li>
+        <li class="flex-center">
+          <img src="../assets/twitter.svg" alt="twitter" />
+        </li>
+      </ul>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="../js/how-to-order.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        offset: 100,
+      });
+    </script>
+  </body>
+</html>

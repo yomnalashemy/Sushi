@@ -41,9 +41,13 @@ class CartManager {
     }
 
     removeFromCart(itemId) {
+        const item = this.cart.find(cartItem => cartItem.id === itemId);
         this.cart = this.cart.filter(item => item.id !== itemId);
         this.saveCart();
         this.updateCartDisplay();
+        if (item) {
+            this.showNotification(`${item.name} removed from cart`, 'success');
+        }
     }
 
     updateQuantity(itemId, newQuantity) {
@@ -52,9 +56,16 @@ class CartManager {
             if (newQuantity <= 0) {
                 this.removeFromCart(itemId);
             } else {
+                const oldQuantity = item.quantity;
                 item.quantity = newQuantity;
                 this.saveCart();
                 this.updateCartDisplay();
+                
+                if (newQuantity > oldQuantity) {
+                    this.showNotification(`${item.name} quantity increased`, 'success');
+                } else if (newQuantity < oldQuantity) {
+                    this.showNotification(`${item.name} quantity decreased`, 'info');
+                }
             }
         }
     }
@@ -119,23 +130,37 @@ class CartManager {
         if (clearCartBtn) clearCartBtn.style.display = 'block';
 
         // Render cart items
-        const cartItemsHTML = this.cart.map(item => `
-            <div class="cart-item" data-item-id="${item.id}">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                <div class="cart-item-details">
-                    <h3 class="cart-item-title">${item.name}</h3>
-                    <p class="cart-item-price">${item.price}</p>
-                </div>
-                <div class="cart-item-controls">
-                    <div class="quantity-controls">
-                        <button class="quantity-btn" onclick="cartManager.updateQuantity('${item.id}', ${item.quantity - 1})" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
-                        <span class="quantity-display">${item.quantity}</span>
-                        <button class="quantity-btn" onclick="cartManager.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+        const cartItemsHTML = this.cart.map(item => {
+            const price = parseFloat(item.price.replace('$', ''));
+            const totalPerItem = price * item.quantity;
+            
+            // Fix image path for cart page (add ../ if needed)
+            let imagePath = item.image;
+            if (imagePath && !imagePath.startsWith('../') && !imagePath.startsWith('http')) {
+                imagePath = '../' + imagePath;
+            }
+            
+            return `
+                <div class="cart-item" data-item-id="${item.id}">
+                    <div class="cart-item-image-container">
+                        <img src="${imagePath}" alt="${item.name}" class="cart-item-image" onerror="this.src='../assets/sushi-1.png'">
                     </div>
-                    <button class="remove-btn" onclick="cartManager.removeFromCart('${item.id}')">Remove</button>
+                    <div class="cart-item-details">
+                        <h3 class="cart-item-title">${item.name}</h3>
+                        <p class="cart-item-price">${item.price} per item</p>
+                        <p class="cart-item-total">Total: $${totalPerItem.toFixed(2)}</p>
+                    </div>
+                    <div class="cart-item-controls">
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="cartManager.updateQuantity('${item.id}', ${item.quantity - 1})" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="cartManager.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="cartManager.removeFromCart('${item.id}')">Remove</button>
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         cartItemsContainer.innerHTML = cartItemsHTML;
 
@@ -172,7 +197,7 @@ class CartManager {
 
     clearCart() {
         if (this.cart.length === 0) {
-            alert('Your cart is already empty!');
+            this.showNotification('Your cart is already empty!', 'info');
             return;
         }
 
@@ -180,8 +205,29 @@ class CartManager {
             this.cart = [];
             this.saveCart();
             this.updateCartDisplay();
-            alert('Cart cleared successfully!');
+            this.showNotification('Cart cleared successfully!', 'success');
         }
+    }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `cart-notification ${type}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        // Show notification
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
     }
 }
 
