@@ -321,18 +321,8 @@
     gap: 16px;
   }
   
-  .cart-item-image {
-    align-self: center;
-  }
-  
-  .cart-item-details {
-    text-align: center;
-  }
-  
   .cart-item-controls {
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
   }
 }
 
@@ -352,15 +342,6 @@
   .cart-item-image {
     width: 60px;
     height: 60px;
-  }
-  
-  .cart-item-pricing {
-    gap: 2px;
-  }
-  
-  .cart-item-price,
-  .cart-item-total {
-    font-size: 14px;
   }
   
   .quantity-controls {
