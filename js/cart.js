@@ -119,18 +119,12 @@ class CartManager {
         if (clearCartBtn) clearCartBtn.style.display = 'block';
 
         // Render cart items
-        const cartItemsHTML = this.cart.map(item => {
-            const unitPrice = parseFloat(item.price.replace('$', ''));
-            const totalPrice = (unitPrice * item.quantity).toFixed(2);
-            return `
+        const cartItemsHTML = this.cart.map(item => `
             <div class="cart-item" data-item-id="${item.id}">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='../assets/sushi-1.png'">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                 <div class="cart-item-details">
                     <h3 class="cart-item-title">${item.name}</h3>
-                    <div class="cart-item-pricing">
-                        <p class="cart-item-price">Unit: ${item.price}</p>
-                        <p class="cart-item-total">Total: $${totalPrice}</p>
-                    </div>
+                    <p class="cart-item-price">${item.price}</p>
                 </div>
                 <div class="cart-item-controls">
                     <div class="quantity-controls">
@@ -141,8 +135,7 @@ class CartManager {
                     <button class="remove-btn" onclick="cartManager.removeFromCart('${item.id}')">Remove</button>
                 </div>
             </div>
-        `;
-        }).join('');
+        `).join('');
 
         cartItemsContainer.innerHTML = cartItemsHTML;
 
