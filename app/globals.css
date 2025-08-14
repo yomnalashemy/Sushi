@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--radius: 0.75rem;
+}
+
+html, body {
+	overflow-x: hidden;
+	background: radial-gradient(1200px 800px at 10% 10%, rgba(135,75,255,0.15), transparent 50%),
+		radial-gradient(1200px 800px at 90% 0%, rgba(255,45,130,0.12), transparent 50%),
+		#0b0b14;
+}
+
+@layer base {
+	* { @apply border-white/10; }
+	body { @apply bg-background text-white; }
+}
+
+@layer components {
+	.container-px { @apply px-4 sm:px-6 lg:px-8; }
+	.max-w-page { @apply max-w-7xl mx-auto; }
+	.card { @apply bg-card/60 backdrop-blur rounded-2xl border border-white/10 shadow-xl; }
+	.btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium transition; }
+	.btn-primary { @apply btn bg-primary-500 hover:bg-primary-400 text-white shadow-primary-500/30 shadow-md; }
+	.btn-secondary { @apply btn bg-secondary-500 hover:bg-secondary-400 text-white shadow-secondary-500/30 shadow-md; }
+	.badge { @apply inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs text-white; }
+	.gradient-text { @apply bg-gradient-to-r from-primary-300 via-secondary-300 to-accent bg-clip-text text-transparent; }
+}
+
+/***** Fun animated utilities *****/
+.blob {
+	filter: blur(42px);
+	opacity: 0.7;
+}
+
+.shiny-bg {
+	background: linear-gradient(110deg, rgba(255,255,255,0.05) 8%, rgba(255,255,255,0.15) 18%, rgba(255,255,255,0.05) 33%);
+	background-size: 200% 100%;
+	animation: shimmer 6s ease-in-out infinite;
+}

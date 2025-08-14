@@ -1,24 +1,39 @@
 {
-  "name": "sushi",
+  "name": "lupus-ai",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "node server.js",
-    "start:static": "node server-static.js",
-    "deploy": "node deploy.js"
-  },
-  "devDependencies": {
-    "vite": "^6.3.5"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "aos": "^2.3.4",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^4.18.2",
-    "nodemailer": "^6.9.7"
+    "next": "^14.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.9",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.4.0",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.446.0",
+    "zod": "^3.23.8",
+    "react-hook-form": "^7.51.5",
+    "@hookform/resolvers": "^3.9.0",
+    "axios": "^1.6.8",
+    "next-themes": "^0.3.0",
+    "react-hot-toast": "^2.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "@tailwindcss/typography": "^0.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "typescript": "^5.4.5"
   }
 }
